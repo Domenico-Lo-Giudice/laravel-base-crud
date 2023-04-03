@@ -18,4 +18,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('track', TrackController::class);
+Route::resource('tracks', TrackController::class);
