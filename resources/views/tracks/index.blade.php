@@ -1,16 +1,8 @@
 @extends('layouts.app')
 
-@section('page-name', 'Lista delle tracks')
-
-@section('navbar')
-    navbar
-@endsection   
+@section('page-name', 'Lista delle tracks') 
 
 @section('main-content')
-    main-content
-@endsection   
-
-@section('footer')
-    footer
+    Lista delle Tracks
 @endsection   
 

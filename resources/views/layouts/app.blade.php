@@ -9,13 +9,11 @@
     @vite('resources/js/app.js')
 </head>
 <body>
-    @yield('navbar')
+    @include('partials.header')
 
     <main>
     @yield('main-content')
     </main>
 
-
-    @yield('footer')
 </body>
 </html>
