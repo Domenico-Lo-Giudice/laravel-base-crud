@@ -7,6 +7,9 @@
     <title>{{ env('APP_NAME')}} - @yield('page-name') </title>
 
     @vite('resources/js/app.js')
+
+    @yield('cdn')
+    
 </head>
 <body class="bg-body-dark text-white">
     @include('partials.header')

@@ -2,8 +2,17 @@
 
 @section('page-name', 'Lista delle tracks') 
 
+@section('cdn')
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+@endsection
+
 @section('main-content')
 {{-- @dump($tracks) --}}
+
+<form class="d-flex my-5">
+  <input class="form-control me-sm-2" type="text" name="term" placeholder="Search">
+  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+</form>
 
 <table class="table table-dark table-striped">
     
@@ -19,7 +28,7 @@
           </tr>
         </thead>
         <tbody>
-          @dump($tracks)
+          {{-- @dump($tracks) --}}
             @foreach ($tracks as $track)
             
             <tr>
@@ -29,7 +38,11 @@
               <td>{{ $track->author}}</td>
               <td>{{ $track->editor}}</td>
               <td>{{ $track->length}}</td>
-              <td> <a href="{{ route('tracks.show', ['track' => $track]) }}">Dettaglio</a> </td>
+              <td> 
+                <a href="{{ route('tracks.show', ['track' => $track]) }}">
+                  <i class="bi bi-box-arrow-up-right"></i>
+                </a> 
+            </td>
             </tr>
 
             @endforeach
