@@ -44,7 +44,25 @@ class TrackController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
+        $data = $request->all();
+
+        $track = new Track;
+
+        // METODO 1
+        // $track->title = $data["title"];
+        // $track->album = $data["album"]; 
+        // $track->author = $data["author"]; 
+        // $track->editor = $data["editor"];
+        // $track->length = $data["length"]; 
+        // $track->poster = $data["poster"]; 
+
+        // METODO 2
+        $track->fill($data); 
+
+        $track->save();
+
+        return redirect()->route('tracks.show', $track);
+
     }
 
     /**
