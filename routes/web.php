@@ -17,4 +17,13 @@ use App\Http\Controllers\PageController;
 
 Route::get('/', [PageController::class, 'index'])->name('homepage');
 
-Route::resource('tracks', TrackController::class);
+// Route::resource('tracks', TrackController::class);
+
+//Rotta per la lista della risorsa
+Route::get('tracks', [TrackController::class, 'index'])->name('tracks.index');
+
+// //Rotta per il dettaglio della risorsa
+Route::get('tracks/{track}', [TrackController::class, 'show'])->name('tracks.show');
+
+// //Rotta per il form di creazione della risorsa
+Route::get('tracks/create', [TrackController::class, 'create'])->name('tracks.create');

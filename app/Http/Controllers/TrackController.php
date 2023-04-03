@@ -33,7 +33,7 @@ class TrackController extends Controller
      */
     public function create()
     {
-        //
+        return view('tracks.create');
     }
 
     /**

@@ -9,10 +9,17 @@
 @section('main-content')
 {{-- @dump($tracks) --}}
 
-<form class="d-flex my-5">
-  <input class="form-control me-sm-2" type="text" name="term" placeholder="Search">
-  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-</form>
+<div class="row my-3">
+  <form class="col-8 d-flex">
+    <input class="form-control me-sm-2" type="text" name="term" placeholder="Search">
+    <button class="btn btn-outline-success my-0" type="submit">Search</button>
+  </form>
+
+  <div class="col-4 d-flex">
+    <a href="{{ route('tracks.create') }}"  type="button" class="btn btn-outline-success ms-auto">Crea Track</a>
+  </div>
+
+</div>
 
 <table class="table table-dark table-striped">
     
@@ -39,7 +46,7 @@
               <td>{{ $track->editor}}</td>
               <td>{{ $track->length}}</td>
               <td> 
-                <a href="{{ route('tracks.show', ['track' => $track]) }}">
+                <a href="{{ route('tracks.show', $track) }}">
                   <i class="bi bi-box-arrow-up-right"></i>
                 </a> 
             </td>
