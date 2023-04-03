@@ -15,6 +15,7 @@
             <th scope="col">Autore</th>
             <th scope="col">Editore</th>
             <th scope="col">Durata</th>
+            <th scope="col">Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -27,6 +28,7 @@
               <td>{{ $track->author}}</td>
               <td>{{ $track->editor}}</td>
               <td>{{ $track->lenght}}</td>
+              <td> <a href="{{ route('tracks.show', ['track' => $track]) }}">Dettaglio</a> </td>
             </tr>
 
             @endforeach
