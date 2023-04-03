@@ -27,3 +27,6 @@ Route::get('tracks/{track}', [TrackController::class, 'show'])->name('tracks.sho
 
 // //Rotta per il form di creazione della risorsa
 Route::get('tracks/create', [TrackController::class, 'create'])->name('tracks.create');
+
+// //Rotta per il form di creazione della risorsa
+Route::post('tracks', [TrackController::class, 'store'])->name('tracks.store');
