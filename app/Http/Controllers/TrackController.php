@@ -44,6 +44,17 @@ class TrackController extends Controller
      */
     public function store(Request $request)
     {
+
+        $request->validate([
+            'title' => 'required',
+            'album' => 'required|unique:tracks|',
+
+        ], [
+
+            'album.required' => "L'album è obbligatorio"
+        ]);
+
+
         $data = $request->all();
 
         $track = new Track;

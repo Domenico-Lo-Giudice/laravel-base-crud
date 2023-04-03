@@ -4,6 +4,17 @@
 
 @section('main-content')
 
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+ 
+
 <form action="{{ route('tracks.store')}}" method="POST" class="row g-3 gx-5">
     @csrf
 
