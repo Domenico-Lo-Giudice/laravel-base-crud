@@ -27,7 +27,7 @@
               <td>{{ $track->album}}</td>
               <td>{{ $track->author}}</td>
               <td>{{ $track->editor}}</td>
-              <td>{{ $track->lenght}}</td>
+              <td>{{ $track->length}}</td>
               <td> <a href="{{ route('tracks.show', ['track' => $track]) }}">Dettaglio</a> </td>
             </tr>
 
