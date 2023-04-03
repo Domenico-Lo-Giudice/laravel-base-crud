@@ -12,8 +12,11 @@
     @include('partials.header')
 
     <main>
-    @yield('main-content')
+        <section class="container">
+            <h1 class="my-5">@yield('page-name')</h1>
+            @yield('main-content')
+        </section>
     </main>
 
 </body>
-</html>
+</html> 
