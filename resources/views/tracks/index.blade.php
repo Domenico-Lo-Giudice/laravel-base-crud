@@ -19,6 +19,7 @@
           </tr>
         </thead>
         <tbody>
+          @dump($tracks)
             @foreach ($tracks as $track)
             
             <tr>
@@ -35,6 +36,7 @@
           
           </tbody>
         </table>
-  </table>
+
+        {{ $tracks->links("pagination::bootstrap-5")}}
 @endsection   
 

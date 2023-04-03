@@ -16,7 +16,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Track</a>
                     <div class="dropdown-menu" aria-labelledby="dropdownId">
-                        <a class="dropdown-item" href="{{ route('tracks.index') }}">Lista</a>
+                        <a class="dropdown-item" href="{{ route('tracks.index') }}">Track</a>
                         <a class="dropdown-item" href="#">...</a>
                     </div>
                 </li>

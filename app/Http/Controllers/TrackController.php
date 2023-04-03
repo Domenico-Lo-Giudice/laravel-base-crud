@@ -15,7 +15,7 @@ class TrackController extends Controller
      */
     public function index()
     {
-        $tracks = Track::limit(15)->offset(0)->get();
+        $tracks = Track::paginate(8);
         return view('tracks.index', compact('tracks'));
     }
 

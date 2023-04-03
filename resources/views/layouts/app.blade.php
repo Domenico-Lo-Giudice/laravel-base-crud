@@ -8,7 +8,7 @@
 
     @vite('resources/js/app.js')
 </head>
-<body>
+<body class="bg-body-dark text-white">
     @include('partials.header')
 
     <main>
