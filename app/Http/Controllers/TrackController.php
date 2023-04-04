@@ -46,12 +46,17 @@ class TrackController extends Controller
     {
 
         $request->validate([
-            'title' => 'required',
+            'title' => 'required|string|unique:tracks|',
             'album' => 'required|unique:tracks|',
+            'author' => 'required|string|',
+            'editor' => 'required|string|',
+            'length' => 'required|string|',
+            'poster' => 'nullable|string|'
 
         ], [
 
-            'album.required' => "L'album è obbligatorio"
+            '*.required' => 'Il campo ":attribute" è obbligatorio',
+            // 'album.required' => "L'album è obbligatorio"
         ]);
 
 
