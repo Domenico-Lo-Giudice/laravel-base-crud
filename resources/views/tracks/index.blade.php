@@ -47,8 +47,12 @@
               <td>{{ $track->length}}</td>
               <td> 
                 <a href="{{ route('tracks.show', $track) }}">
-                  <i class="bi bi-box-arrow-up-right"></i>
+                  <i class="bi bi-box-arrow-up-right mx-2"></i>
                 </a> 
+
+                <a href="{{ route('tracks.edit', $track) }}">
+                <i class="bi bi-pencil-square"></i>
+              </a>
             </td>
             </tr>
 

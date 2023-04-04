@@ -30,3 +30,9 @@ Route::get('tracks/create', [TrackController::class, 'create'])->name('tracks.cr
 
 // //Rotta per il form di creazione della risorsa
 Route::post('tracks', [TrackController::class, 'store'])->name('tracks.store');
+
+// //Rotta per il form di modifica della risorsa
+Route::get('tracks/{track}/edit', [TrackController::class, 'edit'])->name('tracks.edit');
+
+// //Rotta per il form di modifica della risorsa
+Route::put('tracks/{track}/update', [TrackController::class, 'update'])->name('tracks.update');

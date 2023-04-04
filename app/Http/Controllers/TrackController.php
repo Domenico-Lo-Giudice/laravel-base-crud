@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 use App\Models\Track;
 
@@ -45,23 +46,8 @@ class TrackController extends Controller
     public function store(Request $request)
     {
 
-        $request->validate([
-            'title' => 'required|string|unique:tracks|',
-            'album' => 'required|unique:tracks|',
-            'author' => 'required|string|',
-            'editor' => 'required|string|',
-            'length' => 'required|string|',
-            'poster' => 'nullable|string|'
-
-        ], [
-
-            '*.required' => 'Il campo ":attribute" è obbligatorio',
-            // 'album.required' => "L'album è obbligatorio"
-        ]);
-
-
-        $data = $request->all();
-
+        $data = $this->validation($request->all());
+        
         $track = new Track;
 
         // METODO 1
@@ -99,9 +85,11 @@ class TrackController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Track $track)
     {
-        //
+        // dd($track);
+        return view('tracks.edit', compact('track'));
+        
     }
 
     /**
@@ -111,9 +99,13 @@ class TrackController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Track $track)
     {
-        //
+
+        $data = $this->validation($request->all(), $track->id);
+        $track->update($data);
+        return redirect()->route('tracks.show', $track);
+        
     }
 
     /**
@@ -125,5 +117,32 @@ class TrackController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    private function validation($data, $id = null) {
+        $unique_title_validation =  ($id) ? "|unique:tracks,title, $id" : "|unique:tracks";
+        $unique_album_validation =  ($id) ? "|unique:tracks,album, $id" : "|unique:tracks";
+
+        $validator = Validator::make(
+            $data,
+
+            [
+                'title' => "required|string" . $unique_title_validation,
+                'album' => "required|string|" . $unique_album_validation,
+                'author' => 'required|string|',
+                'editor' => 'required|string|',
+                'length' => 'required|string|',
+                'poster' => 'nullable|string|'  
+    
+            ], [
+    
+                '*.required' => 'Il campo ":attribute" è obbligatorio',
+                // 'album.required' => "L'album è obbligatorio"
+            ]
+        
+        )->validate();
+
+        return $validator;
+        
     }
 }
