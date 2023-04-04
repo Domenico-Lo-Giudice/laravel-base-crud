@@ -51,8 +51,16 @@
                 </a> 
 
                 <a href="{{ route('tracks.edit', $track) }}">
-                <i class="bi bi-pencil-square"></i>
+                  <i class="bi bi-pencil"></i>
               </a>
+
+              <form action="{{ route('tracks.destroy', $track) }}" method = "POST" class="">
+                @method('delete')
+                @csrf
+
+                <button class="bi bi-trash mx-2 text-danger btn-icon"></button>
+              </form>
+
             </td>
             </tr>
 

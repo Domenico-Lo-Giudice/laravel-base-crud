@@ -36,3 +36,6 @@ Route::get('tracks/{track}/edit', [TrackController::class, 'edit'])->name('track
 
 // //Rotta per il form di modifica della risorsa
 Route::put('tracks/{track}/update', [TrackController::class, 'update'])->name('tracks.update');
+
+// //Rotta per il form di modifica della risorsa
+Route::delete('tracks/{track}/destory', [TrackController::class, 'destory'])->name('tracks.destory');
